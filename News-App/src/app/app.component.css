@@ -1,0 +1,20 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .header{
+    background-color: rgb(147, 213, 227);
+
+  }
+
+  .footer{
+    background-color: rgb(147, 213, 227);
+    bottom: 0;
+  }
+
+  .footercon{
+    text-align: center;
+    color: white;
+    font-size: 1vw;
+    margin: auto;
+  }
