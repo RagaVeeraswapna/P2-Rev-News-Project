@@ -1,0 +1,116 @@
+<app-dashboard></app-dashboard>
+<div class="whole-container">
+    <div class="body">
+        <img src="../../../../assets/img/image gif.gif " class="gif">
+        <div class="container">
+            <br>
+            <h1 class="display-4 text-primary text-center">Registration Form</h1>
+            <form [formGroup]="form" (ngSubmit)="create()">
+                <div class="mb-3">
+                    <input type="text" id="firstName" placeholder="First Name" formControlName="firstName"
+                        class="form-control">
+                    <div *ngIf="registrationFormControl['firstName'].touched && registrationFormControl['firstName'].invalid"
+                        [ngClass]="'error'">
+                        <ng-container *ngIf="registrationFormControl['firstName'].hasError('required')">First Name
+                            is
+                            required</ng-container>
+                        <ng-container *ngIf="registrationFormControl['firstName'].hasError('minlength')">First Name
+                            should
+                            be at
+                            least 3 characters</ng-container>
+                        <ng-container *ngIf="registrationFormControl['firstName'].hasError('pattern')">First Name
+                            should
+                            start
+                            with an alphabet and contain only alphanumeric characters</ng-container>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="mb-3">
+                    <input type="text" id="lastName" placeholder="Last Name" formControlName="lastName"
+                        class="form-control">
+                    <div *ngIf="registrationFormControl['lastName'].touched && registrationFormControl['lastName'].invalid"
+                        [ngClass]="'error'">
+                        Last Name is required
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="mb-3">
+                    <input type="text" id="email" placeholder="Email" formControlName="email" class="form-control">
+                    <div *ngIf="registrationFormControl['email'].touched && registrationFormControl['email'].invalid"
+                        [ngClass]="'error'">
+                        <ng-container *ngIf="registrationFormControl['email'].hasError('required')">Email is
+                            required</ng-container>
+                        <ng-container *ngIf="registrationFormControl['email'].hasError('email')">Invalid email
+                            format</ng-container>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="mb-3">
+                    <input type="password" id="password" placeholder="Password" formControlName="password"
+                        class="form-control">
+                    <div *ngIf="registrationFormControl['password'].touched && registrationFormControl['password'].invalid"
+                        [ngClass]="'error'">
+                        <ng-container *ngIf="registrationFormControl['password'].hasError('required')">Password is
+                            required</ng-container>
+                        <ng-container *ngIf="registrationFormControl['password'].hasError('minlegth')">Password
+                            should be at
+                            least
+                            8 characters</ng-container>
+                        <ng-container *ngIf="registrationFormControl['password'].hasError('pattern')">
+                            Password should contain at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1
+                            special
+                            character
+                        </ng-container>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="mb-3">
+                    <input type="password" id="confirmPassword" placeholder="Confirm Password"
+                        formControlName="confirmPassword" class="form-control">
+                    <div *ngIf="registrationFormControl['confirmPassword'].touched && registrationFormControl['confirmPassword'].invalid"
+                        [ngClass]="'error'">
+                        <ng-container *ngIf="registrationFormControl['confirmPassword'].hasError('required')">Confirm
+                            Password
+                            is
+                            required</ng-container>
+                        <ng-container *ngIf="registrationFormControl['confirmPassword'].hasError('match')">Passwords
+                            do not
+                            match</ng-container>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="mb-3">
+                    <!-- <select id="country" formControlName="country" class="form-control">
+                            <option value="">Select a country</option>
+                            <option *ngFor="let country of countries" [value]="country.code">{{ country.name }}</option>
+                        </select> -->
+                    <input type="text" formControlName="country" (focus)="getUserCountry()" [value]="userCountry"
+                        class="form-control" placeholder="Country">
+                    <div *ngIf="registrationFormControl['country'].touched && registrationFormControl['country'].invalid"
+                        [ngClass]="'error'">
+                        Country is required
+                    </div>
+                </div>
+
+                <br>
+
+                <!-- <div class="form-group button">
+                    <input type="submit" value="Register" [disabled]="form.invalid" class="btn btn-primary">
+                </div> -->
+                <button type="button" (click)="create()" class="btn btn-primary">Register</button>
+            </form>
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,147 @@
+<app-dashboard></app-dashboard>
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="../../../../assets/img/image gif.gif" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h4 class="card-title"> Profile</h4>
+        <div *ngIf="user">
+          <h2>   {{ user.firstName }}   {{ user.lastName }}</h2>
+          <h4>Email: {{ user.email }}</h4>
+          <p>Country: {{ user.country }}</p>
+        </div>
+        
+        <div *ngIf="!user">
+          <p>Loading user profile...</p>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+<div class="upd-dle">
+<!-- <button>submit</button> -->
+<button type="button" id="upd" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+  Update
+</button>
+
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Update Profile</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Update form -->
+<!-- Update form -->
+<form #updateForm="ngForm" (submit)="updateUser()">
+  <div *ngIf="user" class="container">
+    <div >
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName" [(ngModel)]="user.firstName" required>
+    </div>
+    <br>
+    <div>
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" name="lastName" [(ngModel)]="user.lastName" required>
+    </div>
+    <br>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" [(ngModel)]="user.email" required>
+    </div>
+    <br>
+    <div>
+      <label for="country">Country:</label>
+      <input type="text" id="country" name="country" [(ngModel)]="user.country" required>
+    </div>
+    <br>
+    <button type="submit" >Update</button>
+  </div>
+</form>
+
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Delete Modal -->
+<button type="button" id="dlt" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Delete
+</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel2">Delete</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete the user?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-danger" (click)="deleteUser()">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal5">
+  Reset Password
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel5" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Reset Password</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form (submit)="resetUserPassword()">
+          <div class="mb-3">
+            <label for="resetPassword" class="form-label">New Password</label>
+            <input type="password" class="form-control" id="resetPassword" [(ngModel)]="resetPassword" name="resetPassword" required>
+          </div>
+          <div class="mb-3">
+            <label for="resetConfirmPassword" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="resetConfirmPassword" [(ngModel)]="resetConfirmPassword" name="resetConfirmPassword" required>
+          </div>
+          <div class="text-danger" *ngIf="resetError">{{ resetError }}</div>
+          <button type="submit" class="btn btn-primary">Reset Password</button>
+        </form>
+
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+
+

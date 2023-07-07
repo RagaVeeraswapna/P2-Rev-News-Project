@@ -1,0 +1,24 @@
+.card.mb-3 {
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 4%;
+    display: flex;
+}
+
+/* update */
+
+#upd,#dlt{
+    width: 30%;
+}
+
+/* #dlt{
+    float: right;
+} */
+
+.upd-dle{
+    width: 100%;
+}
+
+.container{
+    width: 50%;
+}
