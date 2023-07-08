@@ -11,6 +11,9 @@ import { GraphQLModule } from './graphql.module';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+
+
 import { NewsComponent } from './components/news/news.component';
 import { CategoryService } from './services/category.service';
 import { Newsservice } from './services/news.service';
@@ -18,9 +21,10 @@ import { RegisterComponent } from './components/news/register/register.component
 import { LoginComponent } from './components/news/login/login.component';
 import { ProfileComponent } from './components/news/profile/profile.component';
 import { SavedNewsComponent } from './components/saved-news/saved-news.component';
-
 import { DashboardComponent } from './components/news/dashboard/dashboard.component';
-
+import { UpdateProfileComponent } from './components/news/profile/update-profile/update-profile.component';
+import { DeleteProfileComponent } from './components/news/profile/delete-profile/delete-profile.component';
+import { ResetPasswordComponent } from './components/news/profile/reset-password/reset-password.component';
 
 
 @NgModule({
@@ -31,7 +35,10 @@ import { DashboardComponent } from './components/news/dashboard/dashboard.compon
     LoginComponent,
     ProfileComponent,
     SavedNewsComponent,
-    DashboardComponent
+    DashboardComponent,
+    UpdateProfileComponent,
+    ResetPasswordComponent,
+    DeleteProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -44,8 +51,8 @@ import { DashboardComponent } from './components/news/dashboard/dashboard.compon
     GraphQLModule,
     MatToolbarModule,
     MatIconModule,
-    MatButtonModule
-    
+    MatButtonModule,
+    MatDialogModule
   ],
   providers: [CategoryService,Newsservice],
   bootstrap: [AppComponent]

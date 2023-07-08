@@ -1,17 +1,55 @@
 import { gql } from "apollo-angular";
 
 export const CREATE_User = gql`
-mutation ($firstName:String!,$lastName:String!,$email:String!,$password:String!,$confirmPassword:String!,$country:String!){
-  createUser(firstName:$firstName,lastName:$lastName,email:$email,password:$password,confirmPassword:$confirmPassword,country:$country){
+mutation ($firstName:String!,$lastName:String!,$email:String!,$password:String!,$phone:String!,$country:String!){
+  createUser(firstName:$firstName,lastName:$lastName,email:$email,password:$password,phone:$phone,country:$country){
     id,
     firstName,
     lastName,
     email,
     password,
-    confirmPassword,
+    phone,
     country,
-  
-    
+  }
+}
+`
+export const DELETE_USER=gql`
+mutation($id:ID!){
+  removeUser(id:$id){
+    id
+    email
+    firstName
+    lastName
+    phone
+    country
+  }
+}
+`
+export const UPDATE_USER = gql`
+mutation UpdateUser(
+  $id: ID!
+  $firstName: String!
+  $lastName: String!
+  $email: String!
+  $password: String!
+  $phone: String!
+  $country: String!
+) {
+  updateUser(
+    id: $id
+    firstName: $firstName
+    lastName: $lastName
+    email: $email
+    password: $password
+    phone:$phone
+    country: $country
+  ) {
+    id
+    firstName
+    lastName
+    email
+    phone
+    country
   }
 }
 `

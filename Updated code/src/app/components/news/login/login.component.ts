@@ -22,35 +22,37 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   login(loginForm: any) {
-    // console.log(loginForm.email);
-    // console.log(loginForm.password);
     this.apollo
-      .watchQuery<{ allUsers: Users[] }>({
-        query: GET_Search,
-        variables: { userFilter: { email: loginForm.email } },
-      })
-      .valueChanges.subscribe(({ data }) => {
-        var userByEmail = data.allUsers[0];
-        sessionStorage.setItem("userDetails", JSON.stringify(userByEmail)); 
-        sessionStorage.setItem("userEmail",userByEmail.email);
-        this.router.navigate(['/news']);
-      });
-
+  .watchQuery<{ allUsers: Users[] }>({
+    query: GET_Search,
+    variables: { userFilter: { email: loginForm.email, password: loginForm.password } },
+  })
+  .valueChanges.subscribe(({ data }) => {
+    const userByEmailAndPassword = data.allUsers[0];
+    if (userByEmailAndPassword) {
+      sessionStorage.setItem("userDetails", JSON.stringify(userByEmailAndPassword));
+      // sessionStorage.setItem("userId",userByEmailAndPassword.email);
+      sessionStorage.setItem("userEmail", userByEmailAndPassword.email);
+      console.log(userByEmailAndPassword.email);
+      this.router.navigate(['/news']);
+    } else {
+      alert("Invalid email or password");
+    }
+  });
       this.getUserCountry();
   }
 
   getUserCountry(): void {
     this.http.get<any>(`https://api.geoapify.com/v1/ipinfo?apiKey=${this.apiKey}`).subscribe(
-        (response) => {
-            this.userCountry = response.country.iso_code.toLowerCase();
-            console.log('User Country ISO Code:', this.userCountry);
-            sessionStorage.setItem("LiveCountry",this.userCountry);
-            this.categoryService.setLiveCountry(this.userCountry);
-        },
-        (error) => {
-            console.error('Error retrieving user country:', error);
-        }
+      (response) => {
+        this.userCountry = response.country.iso_code.toLowerCase();
+        console.log('User Country ISO Code:', this.userCountry);
+        this.categoryService.setLiveCountry(this.userCountry);
+        localStorage.setItem('userCountry', this.userCountry);
+      },
+      (error) => {
+        console.error('Error retrieving user country:', error);
+      }
     );
-    
-}
+  }
 }

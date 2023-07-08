@@ -3,8 +3,9 @@ export interface Users {
     firstName: string;
     lastName: string;
     email: string;
+    phone: string;
     password: string;
-    confirmPassword: string;
+    // confirmPassword: string;
     country: string;
 
 }

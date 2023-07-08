@@ -1,6 +1,4 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { Newsservice } from 'src/app/services/news.service';
 
 @Component({
   selector: 'app-saved-news',
@@ -10,10 +8,10 @@ import { Newsservice } from 'src/app/services/news.service';
 export class SavedNewsComponent {
   savedNews: any[] = [];
 
-  constructor(private newsservice: Newsservice,private http:HttpClient){}
+  constructor(){}
   ngOnInit(): void {
     const userEmail = sessionStorage.getItem('userEmail');
-    const url = `http://localhost:3030/users?email=${userEmail}`;
+    const url = `http://localhost:3030/savedArticles?email=${userEmail}`;
     console.log(url);
     fetch(url)
       .then((response) => {
@@ -35,7 +33,7 @@ export class SavedNewsComponent {
 
   removeArticle(article: any): void {
     const userEmail = sessionStorage.getItem('userEmail');
-    const url = `http://localhost:3030/users?email=${userEmail}`;
+    const url = `http://localhost:3030/savedArticles?email=${userEmail}`;
     console.log(url);
     fetch(url)
       .then(response => response.json())
@@ -48,7 +46,7 @@ export class SavedNewsComponent {
           data[0].savedArticles = updatedArticles;
           console.log(data[0].savedArticles);
           
-          fetch(`http://localhost:3030/users/${data[0].id}`, {
+          fetch(`http://localhost:3030/savedArticles/${data[0].id}`, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json'

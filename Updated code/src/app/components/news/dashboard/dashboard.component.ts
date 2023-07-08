@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CategoryService } from 'src/app/services/category.service';
-import { Newsservice } from 'src/app/services/news.service';
+import { Country, countries } from '../../model_classes/countries';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,18 +11,19 @@ import { Newsservice } from 'src/app/services/news.service';
 })
 export class DashboardComponent implements OnInit {
   isLoggedIn: boolean = false;
+  countries: Country[] = countries;
 
  searchQuery: string = '';
 	selectedCountry: string = 'us';
 	userCountry!: string;
-	countries: any[] = [];
+	// countries: any[] = [];
 	apiKey = '3a1be8a602e141c4bd7ad01b6431cb92';
 
 	constructor(private categoryService: CategoryService, private http: HttpClient,private router:Router) { }
 
 	ngOnInit() {
 		this.getUserCountry();
-		this.getCountries();
+		// this.getCountries();
     const loggedInUserId = sessionStorage.getItem('userEmail');
     this.isLoggedIn = loggedInUserId !== null;
 
@@ -56,23 +57,23 @@ export class DashboardComponent implements OnInit {
         );
 	}
 
-	getCountries() {
-		this.http.get<any>('https://restcountries.com/v2/all').subscribe(
-			(response) => {
-				this.countries = response.map((country: any) => ({
-					code: country.alpha2Code,
-					name: country.name
-				}));
-			},
-			(error) => {
-				console.error('Error retrieving countries:', error);
-			}
-		);
-	}
+	// getCountries() {
+	// 	this.http.get<any>('https://restcountries.com/v2/all').subscribe(
+	// 		(response) => {
+	// 			this.countries = response.map((country: any) => ({
+	// 				code: country.alpha2Code,
+	// 				name: country.name
+	// 			}));
+	// 		},
+	// 		(error) => {
+	// 			console.error('Error retrieving countries:', error);
+	// 		}
+	// 	);
+	// }
 
-	updateSelectedCountry() {
-		this.categoryService.setSelectedCountry(this.selectedCountry);
-	}
+	// updateSelectedCountry() {
+	// 	this.categoryService.setSelectedCountry(this.selectedCountry);
+	// }
 
   logout() {
     sessionStorage.getItem("userId");

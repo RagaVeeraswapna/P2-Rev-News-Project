@@ -8,7 +8,7 @@ query{
      lastName,
      email,
      password,
-     confirmPassword,
+     phone,
      country
    }
  }
@@ -21,7 +21,7 @@ query($userFilter:UserFilter){
     lastName,
     email,
     password,
-    confirmPassword,
+    phone,
     country
   }
 }

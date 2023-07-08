@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "id": "11",
+      "firstName": "swapna",
+      "lastName": "raga",
+      "email": "swapna@gmail.com",
+      "password": "Swapna@123",
+      "phone": "6304658521",
+      "country": "India",
+      "__typename": "User"
+    },
+    {
+      "id": "111",
+      "firstName": "swapna",
+      "lastName": "raga",
+      "email": "swapna@gmail.com",
+      "password": "Swapna@123",
+      "phone": "6304658521",
+      "country": "India",
+      "__typename": "User"
+    }
+  ],
+  "savedArticles": []
+}

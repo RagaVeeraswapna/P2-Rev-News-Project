@@ -3,11 +3,6 @@
     color:red;
 }
 
-/* .whole-container {
-    display: flex;
-    justify-content: center;
-} */
-
 .body {
     width: 80%;
     height: auto;
@@ -26,21 +21,14 @@
 .container {
     width: 40%;
     height: auto;
-    margin-top: 20px;
     max-width: 400px;
     background-color: #fbfbfb;
 }
 
 .form-control {
-    background-color: #F7F7F7;
+    background-color: #f4f4f4;
     border: #fff;
     border-left: 2px solid #337AB7;
     box-shadow:none; 
     border-radius: 1px;
-}
-
-.button {
-    width: 100%;
-    display: flex;
-    justify-content: center;
 }

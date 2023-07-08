@@ -23,6 +23,17 @@ export class NewsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    const userCountry = localStorage.getItem("userCountry");
+
+    if (userCountry) {
+      const defaultCategory = 'general';
+      this.fetchNews(defaultCategory, userCountry);
+      this.categoryService.setSelectedCountry(userCountry);
+    } else {
+      const selectedCountry = this.categoryService.getSelectedCountry();
+      const selectedCategory = this.categoryService.getSelectedCategory();
+      this.fetchNews(selectedCategory, selectedCountry);
+    }
     this.apollo.watchQuery<any>({
       query: GET_USERS,
     }).valueChanges.subscribe(({ data }) => {
@@ -82,9 +93,9 @@ export class NewsComponent implements OnInit {
     });
   }
 
-  openArticle(url: string): void {
-    window.open(url, '_blank');
-  }
+  // openArticle(url: string): void {
+  //   window.open(url);
+  // }
 
   getCategoryDisplayName(): string {
     switch (this.selectedCategory) {
@@ -107,7 +118,7 @@ export class NewsComponent implements OnInit {
   saveArticle(article: any) {
     const userEmail = sessionStorage.getItem('userEmail');
   
-    fetch('http://localhost:3030/users')
+    fetch('http://localhost:3030/savedArticles')
       .then((response) => response.json())
       .then((users) => {
         console.log('Fetched data:', users);
@@ -119,7 +130,7 @@ export class NewsComponent implements OnInit {
             user.savedArticles = [];
           }
           user.savedArticles.push(article);
-          fetch(`http://localhost:3030/users/${user.id}`, {
+          fetch(`http://localhost:3030/savedArticles/${user.id}`, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',
@@ -139,7 +150,7 @@ export class NewsComponent implements OnInit {
             email: userEmail,
             savedArticles: [article],
           };
-          fetch('http://localhost:3030/users', {
+          fetch('http://localhost:3030/savedArticles', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
