@@ -1,116 +1,8 @@
-.flex {
-  display: flex;
-  align-items: center;
-}
-
-header {
-  width: 100%;
-  height: 70px;
-  background-color: black;
-  color: white;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
-}
-
-.logo {
-  margin: 0;
-  padding: 0;
-}
-
-.logo a {
-  font-weight: bolder;
-  letter-spacing: 2px;
-  color: #fff;
-  text-decoration: none;
-}
-
-.search-bar {
-  height: 30px;
-  gap: 8px;
-}
-
-.search-text {
-  width: 200px;
-  height: 100%;
-  padding-inline: 12px;
-  border-radius: 4px;
-  /* border: 2px solid #bbd0e2; */
-  outline: none;
-  border: none;
-  font-family: "Roboto", sans-serif;
-}
-
-.search-button {
-  background-color: rgb(36, 94, 180);
-  color: white;
-  padding: 6px 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-family: "Roboto", sans-serif;
-  font-weight: bolder;
-}
-
-/* .search-button:hover {
-  background-color: white;
-  color: rgb(36, 94, 180);
-} */
-
-.nav-icon {
-  font-size: 20px;
-  color: white;
-  text-decoration: none;
-  padding: 6px 10px;
-  margin-left: 20px;
-}
-
-.nav-icon:hover {
-  background-color: rgb(36, 94, 180);
-  border-radius: 15px;
-}
-
-.custom-dropdown-menu {
-  width: 150px;
-  max-height: 300px;
-  overflow-y: auto;
-  white-space: nowrap;
-}
-
-.custom-dropdown-menu a.dropdown-item {
-  display: block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.custom-dropdown-menu::-webkit-scrollbar {
-  width: 5px;
-}
-
-.custom-dropdown-menu::-webkit-scrollbar-thumb {
-  background-color: #888;
-  border-radius: 5px;
-}
-
-.custom-dropdown-menu::-webkit-scrollbar-thumb:hover {
-  background-color: #555;
-}
-
-.custom-dropdown-menu::-webkit-scrollbar-track {
-  background-color: #eee;
-  border-radius: 5px;
-}
-
-.custom-color {
-  background-color: rgb(36, 94, 180);
-}
-
 .whole-container {
   width: 100%;
   height: auto;
   padding-bottom: 50px;
+  margin-top: 80px;
 }
 
 .container-fluid {
@@ -135,7 +27,7 @@ header {
 }
 
 .news-card {
-  height: 430px;
+  height: 470px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -188,11 +80,24 @@ header {
   border-radius: 5px;
 }
 
+.readmore:hover {
+  background-color: white;
+  color: rgb(36, 94, 180);
+  border: 1px solid rgb(36, 94, 180);
+}
+
 .fa-bookmark {
   width: auto;
   cursor: pointer;
   font-size: 25px;
   color: rgb(36, 94, 180);
+  padding: 10px 12px;
+}
+
+.fa-bookmark:hover {
+  border-radius: 50%;
+  background-color: rgb(36, 94, 180);
+  color: white;
 }
 
 .save-button {
@@ -214,7 +119,6 @@ header {
   }
 }
 
-
 @media (max-width: 768px) {
   .col-lg-4 {
       width: calc(50% - 10px);
@@ -226,6 +130,3 @@ header {
       width: 100%;
   }
 }
-
-
-

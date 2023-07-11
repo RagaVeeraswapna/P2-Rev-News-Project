@@ -23,22 +23,28 @@ export class ProfileComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.loadUserData();
+  }
+
+  loadUserData(): void {
     const loggedInUserEmail = sessionStorage.getItem('userEmail');
-    console.log(loggedInUserEmail);
-      this.apollo
-        .watchQuery<{ allUsers: Users[] }>({
-          query: GET_Search,
-          variables: { userFilter: { email: loggedInUserEmail } },
-        })
-        .valueChanges.subscribe(({ data }) => {
-          this.user = data.allUsers[0];
-        });
-    }
+
+    this.apollo
+      .watchQuery<{ allUsers: Users[] }>({
+        query: GET_Search,
+        variables: { userFilter: { email: loggedInUserEmail } },
+      })
+      .valueChanges.subscribe(({ data }) => {
+        this.user = data.allUsers[0];
+      });
+  }
 
   openDeleteDialog(): void {
     const dialogRef = this.dialog.open(DeleteProfileComponent, {
       width: '400px',
+      height:'130px',
       data: { user: this.user },
+      panelClass: 'custom-dialog-container'
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -47,23 +53,36 @@ export class ProfileComponent implements OnInit {
       }
     });
   }
-  
+
   openUpdateDialog(): void {
-    this.dialog.open(UpdateProfileComponent, {
+    const dialogRef = this.dialog.open(UpdateProfileComponent, {
       width: '400px',
-      data: { user: this.user },
+      // height: '400px',
+      data: { user: { ...this.user } },
+      panelClass: 'custom-dialog-container'
     });
-    // dialogRef.afterClosed().subscribe(result => {
-    //   if (result === 'updated') {
-    //     this.router.navigateByUrl('/profile');
-    //   }
-    // });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'updated') {
+        this.loadUserData();
+      }
+    });
   }
 
   openResetDialog(): void {
-    this.dialog.open(ResetPasswordComponent, {
-      width: '400px',
+    const dialogRef = this.dialog.open(ResetPasswordComponent, {
+      width: '300px',
+      height: '400px',
       data: { user: this.user },
+      panelClass: 'custom-dialog-container'
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if(result === 'updated'){
+
+        this.loadUserData();
+      }
     });
   }
+  
 }

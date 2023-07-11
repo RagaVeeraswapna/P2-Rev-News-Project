@@ -1,6 +1,7 @@
 .whole-container {
   display: flex;
   justify-content: center;
+  margin-bottom: -20px;
 }
 
 .body {
@@ -53,4 +54,8 @@
 
 .custom-color {
   background-color: rgb(36, 94, 180);
+}
+
+.login-title{
+  margin-top:90px;
 }

@@ -7,12 +7,13 @@ import { ProfileComponent } from './components/news/profile/profile.component';
 
 import { DashboardComponent } from './components/news/dashboard/dashboard.component';
 import { SavedNewsComponent } from './components/saved-news/saved-news.component';
+import { IndexComponent } from './index/index.component';
 
 
 const routes: Routes = [
   {
     path:'',
-    component:DashboardComponent
+    component:IndexComponent
   },
   {
   path:'login',

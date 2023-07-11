@@ -1,4 +1,3 @@
-import { Users } from './../../users/users/users';
 import { Component, OnInit } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import { Newsservice } from 'src/app/services/news.service';

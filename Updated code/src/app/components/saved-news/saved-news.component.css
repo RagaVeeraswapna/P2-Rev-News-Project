@@ -194,6 +194,12 @@
     font-size: 25px;
     color: rgb(36, 94, 180);
   }
+
+
+.fa-trash {
+  font-size: 20px;
+  color: #dc3545;
+}
   
   .save-button {
     color: #ffffff;
@@ -225,4 +231,8 @@
     .col-lg-4 {
         width: 100%;
     }
+  }
+
+  .saved-news{
+    margin-top:80px;
   }

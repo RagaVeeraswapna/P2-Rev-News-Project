@@ -24,6 +24,7 @@ export class RegisterComponent implements OnInit {
   userCountry!: string;
   apiKey = '3a1be8a602e141c4bd7ad01b6431cb92';
   countries: Country[] = [];
+  passwordFieldType: string = 'password';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -31,16 +32,6 @@ export class RegisterComponent implements OnInit {
     private apollo: Apollo,
     private router: Router
   ) {}
-
-  usersForm: Users = {
-    id: 0,
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    phone: '',
-    country: '',
-  };
 
   ngOnInit() {
     this.form = this.formBuilder.group(
@@ -73,24 +64,52 @@ export class RegisterComponent implements OnInit {
         validators: this.passwordMatchValidator,
       }
     );
+
+    this.getCountries();
   }
 
   get registrationFormControl() {
     return this.form.controls;
   }
 
-  getUserCountry(): void {
-    this.http
-      .get<any>(`https://api.geoapify.com/v1/ipinfo?apiKey=${this.apiKey}`)
-      .subscribe(
-        (response) => {
-          this.userCountry = response.country.iso_code.toLowerCase();
-          console.log('User Country ISO Code:', this.userCountry);
-        },
-        (error) => {
-          console.error('Error retrieving user country:', error);
-        }
-      );
+  getCountries() {
+    this.http.get<any>('https://restcountries.com/v2/all')
+        .subscribe(
+            (response) => {
+                this.countries = response.map((country: any) => ({
+                    code: country.alpha2Code,
+                    name: country.name
+                }));
+                console.log('Countries:', this.countries);
+            },
+            (error) => {
+                console.error('Error retrieving countries:', error);
+            }
+        );
+}
+
+  // getUserCountry(): void {
+  //   this.http
+  //     .get<any>(`https://api.geoapify.com/v1/ipinfo?apiKey=${this.apiKey}`)
+  //     .subscribe(
+  //       (response) => {
+  //         this.userCountry = response.country.iso_code.toLowerCase();
+  //         console.log('User Country ISO Code:', this.userCountry);
+  //       },
+  //       (error) => {
+  //         console.error('Error retrieving user country:', error);
+  //       }
+  //     );
+  // }
+
+  showPassword: boolean = false;
+  togglePasswordVisibility() {
+      this.showPassword = this.showPassword;
+  }
+
+  showConfirmPassword: boolean = false;
+  toggleConfirmPasswordVisibility(): void {
+      this.showConfirmPassword = this.showConfirmPassword;
   }
 
   passwordMatchValidator(formGroup: FormGroup) {
@@ -121,10 +140,10 @@ export class RegisterComponent implements OnInit {
       const country = formValues.country;
 
       this.apollo
-        .watchQuery<{ allUsers: Users[] }>({
+        .query<{ allUsers: Users[] }>({
           query: GET_USERS,
         })
-        .valueChanges.subscribe(({ data }) => {
+        .subscribe(({ data }) => {
           const userByEmail = data.allUsers.find(
             (user: Users) => user.email === email
           );

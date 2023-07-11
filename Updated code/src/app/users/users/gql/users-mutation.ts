@@ -53,3 +53,11 @@ mutation UpdateUser(
   }
 }
 `
+
+export const RESET_PASSWORD = gql`
+  mutation ResetPassword($id: ID!, $password: String!) {
+    resetPassword(id: $id, password: $password){
+      password
+    }
+  }
+`

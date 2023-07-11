@@ -12,7 +12,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import { MatInputModule } from '@angular/material/input';
 
 import { NewsComponent } from './components/news/news.component';
 import { CategoryService } from './services/category.service';
@@ -25,6 +25,7 @@ import { DashboardComponent } from './components/news/dashboard/dashboard.compon
 import { UpdateProfileComponent } from './components/news/profile/update-profile/update-profile.component';
 import { DeleteProfileComponent } from './components/news/profile/delete-profile/delete-profile.component';
 import { ResetPasswordComponent } from './components/news/profile/reset-password/reset-password.component';
+import { IndexComponent } from './index/index.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { ResetPasswordComponent } from './components/news/profile/reset-password
     DashboardComponent,
     UpdateProfileComponent,
     ResetPasswordComponent,
-    DeleteProfileComponent
+    DeleteProfileComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,8 @@ import { ResetPasswordComponent } from './components/news/profile/reset-password
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatInputModule
   ],
   providers: [CategoryService,Newsservice],
   bootstrap: [AppComponent]

@@ -1,52 +1,48 @@
 <header>
   <h1 class="logo">
-    <a href="#">Rev News</a>
+      <a *ngIf="isLoggedIn" class="home"><i class="fa-solid fa-house" routerLink="/news"></i></a>
+      <a href="#" class="web-name"><img src="../../../../assets/img/rev news logo.png" alt="Logo"></a>
   </h1>
   <div class="search-bar flex">
-    <input *ngIf="isLoggedIn" id="search-text" type="text" class="search-text" [(ngModel)]="searchQuery"
-      placeholder="e.g. 2023-07-05, sports...">
-    <button *ngIf="isLoggedIn" id="search-button" class="search-button" (click)="searchNews()">
-      <i class="fa-solid fa-magnifying-glass"></i>
-    </button>
-  </div>
-  <div class="dropdowns">
-    <div class="dropdown">
-      <button *ngIf="isLoggedIn" type="button" class="btn btn-primary btn-sm dropdown-toggle custom-color"
-        data-bs-toggle="dropdown" aria-expanded="false">
-        Category
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" (click)="selectCategory('general')">General</a></li>
-        <li><a class="dropdown-item" (click)="selectCategory('sports')">Sports</a></li>
-        <li><a class="dropdown-item" (click)="selectCategory('business')">Business</a></li>
-        <li><a class="dropdown-item" (click)="selectCategory('technology')">Technology</a></li>
-        <li><a class="dropdown-item" (click)="selectCategory('entertainment')">Entertainment</a></li>
-        <li><a class="dropdown-item" (click)="selectCategory('health')">Health</a></li>
-        <li><a class="dropdown-item" (click)="selectCategory('science')">Science</a></li>
-      </ul>
-    </div>
-    <div class="dropdown">
-      <button *ngIf="isLoggedIn" type="button" class="btn btn-primary btn-sm dropdown-toggle custom-color"
-        data-bs-toggle="dropdown" aria-expanded="false">
-        Country
-      </button>
-      <ul class="dropdown-menu custom-dropdown-menu">
-        <li *ngFor="let country of countries">
-          <a class="dropdown-item" (click)="selectCountry(country.code)">{{ country.name }}</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div class="nav-icons">
-    <a *ngIf="isLoggedIn" class="nav-icon" routerLink="/savedarticle">
-      <i class="fa-solid fa-bookmark"></i>
-    </a>
-    <a *ngIf="isLoggedIn" class="nav-icon" routerLink="/profile">
-      <i class="fa-solid fa-user"></i>
-    </a>
-    <button *ngIf="!isLoggedIn" type="submit" class="btn btn-primary" routerLink="/login">Login</button>
-    <a *ngIf="isLoggedIn" class="nav-icon" (click)="logout()">
-      <i class="fa-solid fa-right-from-bracket"></i>
-    </a>
+      <input *ngIf="isLoggedIn" id="search-text" type="text" class="search-text" [(ngModel)]="searchQuery"
+          placeholder="eg.2023-07-05,sports...">
+      <button *ngIf="isLoggedIn" id="search-button" class="search-button" (click)="searchNews()"><i
+              class="fa-solid fa-magnifying-glass"></i></button>
+      <div>
+          <div class="btn btn-group">
+              <button *ngIf="isLoggedIn" type="button" class="btn btn-primary btn-sm dropdown-toggle custom-color"
+                  data-bs-toggle="dropdown" aria-expanded="false">Category</button>
+              <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" (click)="selectCategory('general')">General</a></li>
+                  <li><a class="dropdown-item" (click)="selectCategory('business')">Business</a></li>
+                  <li><a class="dropdown-item" (click)="selectCategory('technology')">Technology</a></li>
+                  <li><a class="dropdown-item" (click)="selectCategory('sports')">Sports</a></li>
+                  <li><a class="dropdown-item" (click)="selectCategory('health')">Health</a></li>
+                  <li><a class="dropdown-item" (click)="selectCategory('science')">Science</a></li>
+                  <li><a class="dropdown-item" (click)="selectCategory('entertainment')">Entertainment</a></li>
+              </ul>
+          </div>
+          <div class="btn-group">
+              <button *ngIf="isLoggedIn" type="button" class="btn btn-primary btn-sm dropdown-toggle custom-color"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  Country
+              </button>
+              <ul class="dropdown-menu custom-dropdown-menu">
+                  <li *ngFor="let country of countries">
+                      <a class="dropdown-item" (click)="selectCountry(country.code)">{{ country.name }}</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+      <div>
+          <a *ngIf="isLoggedIn" class="nav-icon" routerLink="/savedarticle"><i class="fa-solid fa-bookmark"></i></a>
+          <a *ngIf="isLoggedIn" class="nav-icon"><i class="fa-solid fa-user" routerLink="/profile"></i></a>
+          <button *ngIf="!isLoggedIn" type="submit" class="btn btn-primary" routerLink="/login" >Login</button>
+          <a *ngIf="isLoggedIn" class="nav-icon"><i class="fa-solid fa-right-from-bracket" (click)="logout()"></i></a>
+      </div>
   </div>
 </header>
+
+<footer>
+  <p>RevNews &#169; Copyrights 2023</p>
+</footer>
