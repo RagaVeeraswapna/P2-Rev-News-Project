@@ -1,0 +1,99 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Akshayaa",
+      "lastName": "D",
+      "email": "akshayaa2509@gmail.com",
+      "password": "Aksh@259",
+      "phone": "6304658521",
+      "country": "AU"
+    },
+    {
+      "id": "2",
+      "firstName": "Vaishnavi",
+      "lastName": "S",
+      "email": "vaishnavi@gmail.com",
+      "password": "Vaish@1234",
+      "phone": "7893783789",
+      "country": "DE",
+      "__typename": "User"
+    },
+    {
+      "id": "4",
+      "firstName": "swapna",
+      "lastName": "raga",
+      "email": "swapna@gmail.com",
+      "password": "Swapna@123",
+      "phone": "7893783789",
+      "country": "AT",
+      "__typename": "User"
+    }
+  ],
+  "savedArticles": [
+    {
+      "email": "meghana@gmail.com",
+      "savedArticles": [
+        {
+          "source": {
+            "id": "the-times-of-india",
+            "name": "The Times of India"
+          },
+          "author": "TIMESOFINDIA.COM",
+          "title": "Fares of AC chair car, executive classes of all trains, including Vande Bharat, to be reduced by up to 25 - Indiatimes.com",
+          "description": "India News: NEW DELHI: The Railway Board on Saturday announced that fares of AC chair car, executive classes of all trains, including Vande Bharat, will be reduce",
+          "url": "https://timesofindia.indiatimes.com/india/fares-of-ac-chair-car-executive-classes-of-all-trains-including-vande-bharat-to-be-reduced-by-up-to-25-railways-board/articleshow/101593687.cms",
+          "urlToImage": "https://static.toiimg.com/thumb/msid-101593766,width-1070,height-580,imgsize-35376,resizemode-75,overlay-toi_sw,pt-32,y_pad-40/photo.jpg",
+          "publishedAt": "2023-07-08T08:48:00Z",
+          "content": null
+        }
+      ],
+      "id": 1
+    },
+    {
+      "email": "akshayaa2509@gmail.com",
+      "savedArticles": [
+        {
+          "source": {
+            "id": null,
+            "name": "Firstpost"
+          },
+          "author": "studio18",
+          "title": "Best Testosterone Booster for Males over 40 - Top 5 Testosterone Booster Supplements - Firstpost",
+          "description": "Several testosterone-boosting products for men can raise the bodys free testosterone levels.",
+          "url": "https://www.firstpost.com/health-supplement/best-testosterone-booster-for-males-over-40-top-5-testosterone-booster-supplements-12840202.html",
+          "urlToImage": "https://images.firstpost.com/wp-content/uploads/2023/07/TestosteroneBooster_640x320_1.jpg",
+          "publishedAt": "2023-07-10T05:02:40Z",
+          "content": "As men age, their testosterone levels usually decline, which can have various effects. Several detrimental effects, such as increased If you are experiencing belly fat, mood swings, muscle loss, exha… [+22685 chars]"
+        },
+        {
+          "source": {
+            "id": null,
+            "name": "Gadgets360.com"
+          },
+          "author": "Press Trust of India",
+          "title": "Oppo Reno 10 Series Expected to Sell 83 Percent More Than Previous Series, Says Company Official - Gadgets 360",
+          "description": "Smartphone maker Oppo expects its Reno 10 series sales volume to be 83 percent higher in India compared to the previous version, a senior official of the company said on Monday. The company expects Reno 10 series to set the pace of business during the upcomin…",
+          "url": "https://www.gadgets360.com/mobiles/news/oppo-reno-10-series-expected-83-percent-more-sell-than-previous-lineup-com-india-4195467",
+          "urlToImage": "https://i.gadgets360cdn.com/large/oppo_reno_10_pro_oppo_1687868463007.jpg",
+          "publishedAt": "2023-07-10T18:19:17Z",
+          "content": "Smartphone maker Oppo expects its Reno 10 series sales volume to be 83 percent higher in India compared to the previous version, a senior official of the company said on Monday. \r\nThe company expects… [+1958 chars]"
+        },
+        {
+          "source": {
+            "id": "business-insider",
+            "name": "Business Insider"
+          },
+          "author": "Quentyn Kennemer",
+          "title": "Apple AirPods are as low as $90 for Amazon Prime Day 2023",
+          "description": "This AirPods Prime Day deal gets you the 2nd-gen earbuds for $90. If you have a bigger budget, consider the 3rd-gen AirPods, now down to $139.99.",
+          "url": "https://www.businessinsider.com/guides/deals/apple-airpods-prime-day-deals-2023-7-12",
+          "urlToImage": "https://i.insider.com/64ade35f94be880019f38154?width=1200&format=jpeg",
+          "publishedAt": "2023-07-12T07:20:30Z",
+          "content": "When you buy through our links, Insider may earn an affiliate commission. Learn more.\r\nWhether you're graduating from entanglement with wired headphones or upgrading from an older pair of wireless ea… [+2616 chars]"
+        }
+      ],
+      "id": 2
+    }
+  ]
+}
