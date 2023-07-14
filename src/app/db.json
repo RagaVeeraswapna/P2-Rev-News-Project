@@ -1,0 +1,61 @@
+{
+  "users": [
+    {
+      "__typename": "User",
+      "id": 1,
+      "firstName": "Akshaya",
+      "lastName": "D",
+      "email": "akshayaa2509@gmail.com",
+      "password": "Aksh@259",
+      "phone": "6304658521",
+      "country": "India"
+    }
+  ],
+  "savedArticles": [
+    {
+      "email": "akshayaa2509@gmail.com",
+      "savedArticles": [
+        {
+          "source": {
+            "id": null,
+            "name": "Deccan Herald"
+          },
+          "author": "PTI",
+          "title": "Climate change has shifted colour of over half of world's oceans: Study - Deccan Herald",
+          "description": "The colour of over 56 per cent of the world's oceans, larger than Earth's total land expanse, has changed significantly over the last two decades and human-caused climate change is likely the driver, according to researchers. These colour changes, subtle to t…",
+          "url": "https://www.deccanherald.com/science-and-environment/climate-change-has-shifted-colour-of-over-half-of-worlds-oceans-study-1236612.html",
+          "urlToImage": "https://www.deccanherald.com/sites/dh/files/articleimages/2023/07/13/ocean-g8697886aa1920-1-1236612-1689243141.jpg",
+          "publishedAt": "2023-07-13T10:12:21Z",
+          "content": "The colour of over 56 per cent of the world's oceans, larger than Earth's total land expanse, has changed significantly over the last two decades and human-caused climate change is likely the driver,… [+2879 chars]"
+        },
+        {
+          "source": {
+            "id": null,
+            "name": "India Today"
+          },
+          "author": "Ankita Garg",
+          "title": "Samsung Galaxy Z Flip 5, Fold 5 foldable phone price leak ahead of July 26 launch event - India Today",
+          "description": "Samsung will introduce the latest Samsung Galaxy Z Fold 5 smartphone and a new Galaxy Z Flip 5 phone. The price details of upcoming Samsung foldable phones have been leaked online.",
+          "url": "https://www.indiatoday.in/technology/news/story/samsung-galaxy-z-flip-5-fold-5-foldable-phone-price-leak-ahead-of-july-26-launch-event-2406022-2023-07-13",
+          "urlToImage": "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202307/samsung_event-sixteen_nine.jpg?VersionId=mcYipBTNHIZRSBVu0b0hR8G1RR_Chpqx",
+          "publishedAt": "2023-07-13T10:11:53Z",
+          "content": "By Ankita Garg: Samsung is gearing up to announce its new foldable phones along with a few more devices at its upcoming Galaxy Unpacked event, which will take place on July 26. The event is just arou… [+3399 chars]"
+        },
+        {
+          "source": {
+            "id": null,
+            "name": "Hindustan Times"
+          },
+          "author": "HT Entertainment Desk",
+          "title": "The Kerala Story's Adah Sharma reacts to Naseeruddin, Kamal Haasan's comment - Hindustan Times",
+          "description": "Adah Sharma's The Kerala Story has turned out to be a box office success. The actor reacted to comments made by Naseeruddin Shah and Kamal Haasan. | Bollywood",
+          "url": "https://www.hindustantimes.com/entertainment/bollywood/the-kerala-storys-adah-sharma-on-naseeruddin-shah-kamal-haasans-comment-101689248240459.html",
+          "urlToImage": "https://www.hindustantimes.com/ht-img/img/2023/07/13/1600x900/the_kerala_story_1689249161199_1689249161535.jpg",
+          "publishedAt": "2023-07-13T12:05:50Z",
+          "content": "Adah Sharma has reacted to The Kerala Story breaking box office records and how even comments from actors like Naseeruddin Shah and Kamal Haasan did not deter audiences from watching the film in thea… [+2075 chars]"
+        }
+      ],
+      "id": 1
+    }
+  ]
+}

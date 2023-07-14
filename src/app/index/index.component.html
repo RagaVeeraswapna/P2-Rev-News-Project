@@ -1,0 +1,85 @@
+<!-- <app-dashboard></app-dashboard> -->
+<header>
+    <h1 class="logo">
+        <p class="web-name"><img src="../../../../assets/img/rev news logo.png" alt="Logo"></p>
+    </h1>
+    <div>
+        <button  class="btn btn-primary btn-sm custom-color login"
+        routerLink="/login">Login</button>
+    </div>
+</header>
+<div class="whole-container">
+    <div class="container-fluid">
+        <div class="welimg">
+            <div class="quote-container">
+                <!-- <h1 class="quote">Breaking News</h1> -->
+                <p class="quote-description">“News Website, cannot be <br>Defined by the second <br>Word - Website.
+                    They've <br> got to be defined by <br> the first word - News”</p>
+                    <!-- <div class="author"> <i>- Roheeth Ragavendar</i></div> -->
+                <div>
+                    <button class="reg-btn" routerLink="/add">Register</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="Welcome-heading">
+                <p>Welcome to the Rev News</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4" *ngFor="let article of news">
+                <mat-card class="news-card">
+                    <div class="image-container">
+                        <img mat-card-image [src]="article.urlToImage || '../../../../assets/img/default news.jpg'" [alt]="article.title" />
+                    </div>
+                    <mat-card-content>
+                        <mat-card-title class="title">
+                            {{ article.title | slice : 0 : 60 }}
+                        </mat-card-title>
+                        <mat-card-subtitle class="author">
+                          <p> Author : {{ article.author || "null" }}</p>  
+                        </mat-card-subtitle>
+                        <mat-card-subtitle class="source">
+                            <p>Source : {{ article.source.name || "null" }}</p>
+                        </mat-card-subtitle>
+                        <mat-card-subtitle class="published-at">
+                           <p> publishedAt : {{article.publishedAt | date: 'yyyy-MM-dd' }}</p>
+                        </mat-card-subtitle>
+                        <p class="description">{{ article.description }}</p>
+                    </mat-card-content>
+                    <mat-card-actions class="actions">
+                        <!-- <button mat-raised-button id="reset" type="submit">Reset Password</button> -->
+                        <a routerLink="/login" class="readmore">Read More</a>
+                        <i routerLink="/login" class="fa-solid fa-bookmark"></i>
+                        <i routerLink="/login" class="fa-solid fa-share"></i>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+
+        <mat-card>
+            <div class="why-revnews">
+                <h2>Why users register on a RevNews ?</h2>
+                <p><span>Personalization:</span> <br>"Tailor your news feed to match your interests and stay informed on what matters to you."</p>
+                <p><span>Saved News:</span> <br> "Save articles to read later and create your own library of news stories that captivate you."</p>
+                <p><span>Social Sharing:</span> <br>"Spread the news with a single click! Share articles that inspire you and spark meaningful conversations."</p>
+                <p><span>Quick Access:</span> <br>"Save time and get instant access to news that matches your interests."</p>
+            </div>
+        </mat-card>
+        
+
+        <div class="about-section">
+            <h2>About Our News Website</h2>
+            <p>Welcome to our news website, your source for the latest news and updates. We strive to bring you the most
+                accurate and timely information on various topics including sports, technology, and more. Stay informed
+                with our reliable news coverage and explore our featured articles. Register now to receive personalized
+                news recommendations and exclusive content.</p>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <p>RevNews &#169; Copyrights 2023</p>
+</footer>
