@@ -1,7 +1,6 @@
-<!-- <app-dashboard></app-dashboard> -->
 <header>
     <h1 class="logo">
-        <p class="web-name"><img src="../../../../assets/img/rev news logo.png" alt="Logo"></p>
+        <div class="web-name"><img src="../../../../assets/img/rev news logo.png" alt="Logo"></div>
     </h1>
     <div>
         <button  class="btn btn-primary btn-sm custom-color login"
@@ -10,15 +9,41 @@
 </header>
 <div class="whole-container">
     <div class="container-fluid">
-        <div class="welimg">
-            <div class="quote-container">
-                <!-- <h1 class="quote">Breaking News</h1> -->
-                <p class="quote-description">“News Website, cannot be <br>Defined by the second <br>Word - Website.
-                    They've <br> got to be defined by <br> the first word - News”</p>
-                    <!-- <div class="author"> <i>- Roheeth Ragavendar</i></div> -->
-                <div>
+        <div class="slider">
+            <div class="slides">
+                <input type="radio" name="radio-btn" id="radio1">
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+    
+                <div class="slide first">
+                    <img src="../../assets/img/index-background.jpeg">
+                    <h1 class="personalization">"Stay ahead of the curve <br> with a news feed tailored <br> to your unique interests, <br> keeping you informed on <br> what truly matters to you"
+                    </h1>
                     <button class="reg-btn" routerLink="/add">Register</button>
                 </div>
+                <div class="slide">
+                    <img src="../../assets/img/indeximage.png">
+                    <h1 class="save-article">"Create your own personalized <br> library of captivating news stories, <br> ensuring you never miss <br> an article worth reading"
+                    </h1>
+                    <button class="reg-btn" routerLink="/add">Register</button>
+                </div>
+                <div class="slide">
+                    <img src="../../assets/img/indeximage5.jpg">
+                    <h1 class="share-article">"Empower others with the news <br> that inspires you. Share thought <br> provoking articles effortlessly <br> and ignite meaningful conversations"</h1>
+                    <button class="reg-btn" routerLink="/add">Register</button>
+                </div>
+    
+                <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                </div>
+            </div>
+    
+            <div class="navigation-manual">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
             </div>
         </div>
 
@@ -30,18 +55,18 @@
         <div class="row">
             <div class="col-lg-4" *ngFor="let article of news">
                 <mat-card class="news-card">
+                    <div class="source">
+                        <p> {{ article.source.name || "null" }}</p>
+                    </div>
                     <div class="image-container">
-                        <img mat-card-image [src]="article.urlToImage || '../../../../assets/img/default news.jpg'" [alt]="article.title" />
+                        <a href="{{ article.url }}" target="_blank"><img mat-card-image [src]="article.urlToImage || '../../../../assets/img/default news.jpg'" [alt]="article.title" /></a>
                     </div>
                     <mat-card-content>
                         <mat-card-title class="title">
-                            {{ article.title | slice : 0 : 60 }}
+                            <a href="{{ article.url }}" target="_blank">{{ article.title | slice : 0 : 60 }}</a>
                         </mat-card-title>
                         <mat-card-subtitle class="author">
                           <p> Author : {{ article.author || "null" }}</p>  
-                        </mat-card-subtitle>
-                        <mat-card-subtitle class="source">
-                            <p>Source : {{ article.source.name || "null" }}</p>
                         </mat-card-subtitle>
                         <mat-card-subtitle class="published-at">
                            <p> publishedAt : {{article.publishedAt | date: 'yyyy-MM-dd' }}</p>
@@ -49,25 +74,13 @@
                         <p class="description">{{ article.description }}</p>
                     </mat-card-content>
                     <mat-card-actions class="actions">
-                        <!-- <button mat-raised-button id="reset" type="submit">Reset Password</button> -->
-                        <a routerLink="/login" class="readmore">Read More</a>
+                        <a href="{{ article.url }}" target="_blank" class="readmore">Read More</a>
                         <i routerLink="/login" class="fa-solid fa-bookmark"></i>
                         <i routerLink="/login" class="fa-solid fa-share"></i>
                     </mat-card-actions>
                 </mat-card>
             </div>
         </div>
-
-        <mat-card>
-            <div class="why-revnews">
-                <h2>Why users register on a RevNews ?</h2>
-                <p><span>Personalization:</span> <br>"Tailor your news feed to match your interests and stay informed on what matters to you."</p>
-                <p><span>Saved News:</span> <br> "Save articles to read later and create your own library of news stories that captivate you."</p>
-                <p><span>Social Sharing:</span> <br>"Spread the news with a single click! Share articles that inspire you and spark meaningful conversations."</p>
-                <p><span>Quick Access:</span> <br>"Save time and get instant access to news that matches your interests."</p>
-            </div>
-        </mat-card>
-        
 
         <div class="about-section">
             <h2>About Our News Website</h2>
@@ -76,10 +89,43 @@
                 with our reliable news coverage and explore our featured articles. Register now to receive personalized
                 news recommendations and exclusive content.</p>
         </div>
-
     </div>
 </div>
 
-<footer>
-    <p>RevNews &#169; Copyrights 2023</p>
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>About Us</h4>
+                <ul>
+                    <li><a href="#">About RevNews</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Privacy and Policy</a></li>
+                    <li><a href="#">Affilate program</a></li>
+
+                   
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Categories </h4>
+                <ul>
+                    <li><a href="#">General</a></li>
+                    <li><a href="#">Business </a></li>
+                    <li><a href="#">Sports</a></li>
+                    <li><a href="#">Entertainment</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Social Media</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </footer>

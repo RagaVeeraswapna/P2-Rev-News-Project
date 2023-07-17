@@ -1,15 +1,38 @@
+header {
+    width: 100%;
+    height: 9vh;
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+}
+
+.logo {
+    width: auto;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.web-name img {
+    width: auto;
+    height: 45px;
+}
+
 .whole-container {
     width: 100%;
     height: auto;
     padding-bottom: 50px;
     box-sizing: border-box;
-    margin-top: 50px;
-}
-
-.category-name {
-    text-align: center;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin-top: 9vh;
 }
 
 .container-fluid {
@@ -18,6 +41,166 @@
     box-sizing: border-box;
 }
 
+/* Slider */
+
+.slider {
+    width: 100%;
+    height: 91vh;
+    overflow: hidden;
+}
+
+.slides {
+    width: 500%;
+    height: 91vh;
+    display: flex;
+}
+
+.slides input {
+    display: none;
+}
+
+.slide {
+    width: 20%;
+    transition: 2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    height: 91vh;
+}
+
+.slide .personalization {
+    position: absolute;
+    top: 30%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    font-weight: bold;
+    color: white;
+    font-size: 40px;
+    line-height: 1.5;
+}
+
+.slide .reg-btn {
+    position: absolute;
+    top: 60%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    color: black;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 150px;
+    transition: background-color 0.3s ease;
+    background-color: #fff;
+    margin-top: 30px;
+}
+
+.reg-btn:hover {
+    background-color: darkgrey;
+}
+
+.slide .save-article {
+    position: absolute;
+    top: 75%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    color: black;
+    font-size: 40px;
+    font-weight: bolder;
+    line-height: 1.5;
+}
+
+.slide .share-article {
+    position: absolute;
+    top: 40%;
+    right: 25%;
+    transform: translate(50%, -50%);
+    text-shadow: 1px 1px 2px rgb(155, 155, 155);
+    text-align: left;
+    color: black;
+    color: rgba(85, 85, 85, 0.9);
+    font-size: 40px;
+    line-height: 1.5;
+}
+
+
+.navigation-manual {
+    position: absolute;
+    width: 100%;
+    bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.manual-btn {
+    border: 2px solid white;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.manual-btn:not(:last-child) {
+    margin-right: 40px;
+}
+
+.manual-btn:hover {
+    background: white;
+}
+
+#radio1:checked~.first {
+    margin-left: 0;
+}
+
+#radio2:checked~.first {
+    margin-left: -20%;
+}
+
+#radio3:checked~.first {
+    margin-left: -40%;
+}
+
+
+.navigation-auto {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    bottom: 30px;
+}
+
+.navigation-auto div {
+    border: 2px solid white;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 1s;
+}
+
+.navigation-auto div:not(:last-child) {
+    margin-right: 40px;
+}
+
+#radio1:checked~.navigation-auto .auto-btn1 {
+    background: white;
+}
+
+#radio2:checked~.navigation-auto .auto-btn2 {
+    background: white;
+}
+
+#radio3:checked~.navigation-auto .auto-btn3 {
+    background: white;
+}
+
+/* News Card */
 .row {
     width: 100%;
     padding-top: 50px;
@@ -26,7 +209,6 @@
     box-sizing: border-box;
 }
 
-/* News Card */
 .news-row {
     width: 100%;
     display: flex;
@@ -66,8 +248,20 @@
     line-height: 1.5;
 }
 
-.author p,
+.source {
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+
 .source p {
+    margin-top: 6px;
+}
+
+.author p {
     margin: 0;
 }
 
@@ -118,55 +312,23 @@
     color: white;
 }
 
-
-/* image adding with quotes */
-
-.welimg {
-    position: relative;
-    background-image: url('../../assets/img/index-background.jpeg');
-    width: 100%;
-    height: 85vh;
-    background-repeat: no-repeat;
-    background-size: cover;
-    /* margin-top: 70px; */
+.fa-share {
+    font-size: 25px;
+    color: rgb(36, 94, 180);
+    padding: 10px 12px;
 }
 
-.quote-container {
-    position: absolute;
-    top: 40%;
-    left: 25%;
-    transform: translate(-50%, -50%);
-    /* text-align: center; */
+.fa-share:hover {
+    border-radius: 50%;
+    background-color: rgb(36, 94, 180);
     color: white;
 }
 
-.quote-description {
-    font-size: 50px;
-    font-weight: bold;
-    line-height: normal;
-}
-
-/* register  */
-
-.reg-btn {
-    font-size: 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    padding: 10px 170px;
-    transition: background-color 0.3s ease;
-    background-color: #fff;
-    margin-top: 30px;
-    color: #000;
-}
-
-.reg-btn:hover {
-    background-color: darkgrey;
-}
 
 /* about news about-section */
 
 .about-section {
+    margin-top: 20px;
     text-align: center;
     padding: 10px 50px;
 }
@@ -198,44 +360,116 @@
     border-bottom: 2px solid black;
 }
 
+.slide .reg-btn {
+    position: absolute;
+    top: 60%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    color: black;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 150px;
+    transition: background-color 0.3s ease;
+    background-color: #fff;
+    margin-top: 30px;
+}
 
+.reg-btn:hover {
+    background-color: darkgrey;
+}
+
+.slide .save-article {
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    color: black;
+    font-size: 40px;
+    font-weight: bolder;
+    line-height: 1.5;
+}
+
+.slide .share-article {
+    position: absolute;
+    top: 40%;
+    right: 25%;
+    transform: translate(50%, -50%);
+    text-shadow: 1px 1px 2px rgb(155, 155, 155);
+    text-align: left;
+    color: black;
+    color: white;
+    font-size: 40px;
+    line-height: 1.5;
+}
+
+
+.reg-btn {
+    font-size: 13px;
+    padding: 2px 50px;
+    margin-top: 10px;
+
+}
+
+.Welcome-heading p {
+    font-size: 30px;
+}
+
+.col-lg-4 {
+    width: 30%;
+}
+
+.readmore {
+    padding: 2px 7px;
+    font-size: 14px;
+
+}
+
+.fa-bookmark {
+    font-size: 20px;
+}
+
+
+/* Responsive */
 
 @media (max-width: 768px) {
-    .welimg {
+    /* .slider {
         margin-top: 50px;
         width: 100%;
         height: 40vh;
     }
 
-    .quote-description {
-        font-size: 25px;
+    .slides {
+        height: 40vh;
     }
 
-    .reg-btn {
-        font-size: 13px;
-        padding: 2px 50px;
-        margin-top: 10px;
-
+    .slide img {
+        height: 40vh;
     }
 
-    .Welcome-heading p {
-        font-size: 30px;
+    .slide .personalization {
+        top: 35%;
+        left: 25%;
+        font-size: 15px;
     }
-
-    .col-lg-4 {
-        width: 30%;
-    }
-
-    .readmore {
-        padding: 2px 7px;
+    .slide .reg-btn {
+        top: 60%;
+        left: 25%;
         font-size: 14px;
-
+        padding: 2px 60px;
+        margin-top: 20px;
     }
-
-    .fa-bookmark {
-        font-size: 20px;
+    .navigation-manual {
+        position: relative;
     }
+    .navigation-auto {
+        position: relative;
+    } */
 }
+
 
 @media (max-width: 576px) {
     .quote-description {
@@ -340,95 +574,105 @@
 }
 
 
-
-/* Author */
-
-/* .author {
-    display: flex;
-    justify-content: right;
-} */
-
-header {
-    width: 100%;
-    height: 70px;
-    background-color: black;
-    color: white;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-}
-
-.logo {
-    width: auto;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-}
-.web-name img {
-    width: auto;
-    height: 45px;
-}
 footer {
     width: 100%;
+    height: 50px;
     font-size: 12px;
-    background-color: #102039;
     background-color: black;
     color: white;
     font-family: sans-serif;
-    position: fixed;
-    bottom: 0;
-    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 footer p {
-    margin: 9px;
+    margin: 0;
     text-align: center;
     opacity: 0.5;
 }
 
-/* why revnews */
+.footer{
+    background-color: #26272b;
+    padding: 100px 0 ;
+}
 
+.footer-col{
+    width: 25%;
+    padding: 0 19px;
 
+}
 
-.why-revnews h2::before{
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer-col h4{
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+}
+
+.footer-col h4::before{
     content: '';
     position: absolute;
-    /* left: 57px; */
-    right: 41%;
-    bottom: 14px;
-    width: 25%;
+    left: 0;
+    bottom: -1px;
+    background-color: rgb(36, 94, 180);
     height: 2px;
-    background-color: #000;
-    /* margin: 0 auto; */
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
+    box-sizing: border-box;
+    width: 50px;
 }
-.why-revnews h2{
-    position: relative;
-    text-align: center;
-    font-weight: bolder;
-    padding-bottom: 15px;
+
+.footer-col ul li:not(:last-child){
+    margin-bottom: 10px;
+
+}
+
+.footer-col ul li a{
+    font-size: 16px;
     text-transform: capitalize;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.3s ease;
+
 }
-.why-revnews p{
+
+.footer-col ul li a:hover{
+    color: #ffffff;
+    padding-left: 8px;
+}
+
+.footer-col .social-links a{
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color:rgba(255, 255, 255, 0.2) ;
+    margin: 0 10px 10px 0;
     text-align: center;
-}
-.why-revnews span{
-    font-weight: bold;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
 }
 
-.fa-share {
-    font-size: 25px;
-    color: rgb(36, 94, 180);
-  }
-  
+.footer-col .social-links a:hover{
+    color: #24262b;
+    background-color: #ffffff;
+}
 
+@media(max-width: 767px){
+    .footer-col{
+        width: 50%;
+        padding: 0 15px;
+        margin-bottom: 30px;
+    }
+}
 

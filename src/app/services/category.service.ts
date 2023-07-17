@@ -11,11 +11,8 @@ export class CategoryService {
   private selectedCountry = new BehaviorSubject<string>('');
   selectedCountry$ = this.selectedCountry.asObservable();
 
-  private searchQuery = new BehaviorSubject<string>('');
- searchQuery$ = this.searchQuery.asObservable();
-
-  private liveCountry = new BehaviorSubject<string>('');
-  liveCountry$ = this.liveCountry.asObservable();
+  public searchQuery = new BehaviorSubject<string>('');
+  searchQuery$ = this.searchQuery.asObservable();
 
   setSelectedCategory(category: string) {
     this.selectedCategory.next(category);
@@ -36,11 +33,5 @@ export class CategoryService {
   setSearchQuery(query: string) {
     console.log(query);
     this.searchQuery.next(query);
-  }
-
-  setLiveCountry(userCountry: string) {
-    console.log(userCountry);
-    this.liveCountry.next(userCountry);
-    // this.setSelectedCountry(userCountry);
   }
 }

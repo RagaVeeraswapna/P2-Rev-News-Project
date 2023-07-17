@@ -3,12 +3,9 @@ import { Apollo } from 'apollo-angular';
 import { Newsservice } from 'src/app/services/news.service';
 import { CategoryService } from 'src/app/services/category.service';
 import { GET_USERS } from 'src/app/users/users/gql/users-query';
-import { PageEvent } from '@angular/material/paginator';
 import { ShareiconsComponent } from '../shareicons/shareicons.component';
 import { MatDialog } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
 import { AuthService } from 'src/app/services/auth.service';
-import { AuthGuard } from 'src/app/auth.guard';
 import { Router } from '@angular/router';
 
 @Component({
@@ -19,17 +16,13 @@ import { Router } from '@angular/router';
 export class NewsComponent implements OnInit {
   news: any[] = [];
   filteredNews: any[] = [];
+  country:string = '';
   selectedCategory: string = '';
   currentUser: any;
-  pageSize: number = 12;
-  pageSizeOptions: number[] = [12, 24, 60];
-  paginatedNews: any[] = [];
-
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
-    private newsService: Newsservice,
-    private categoryService: CategoryService,
+    public newsService: Newsservice,
+    public categoryService: CategoryService,
     private apollo: Apollo,
     private dialog: MatDialog,
     private authService:AuthService,
@@ -42,7 +35,7 @@ export class NewsComponent implements OnInit {
       this.router.navigate(['/login']);
       return;
     }
-    const userCountry = localStorage.getItem("userCountry");
+    const userCountry=sessionStorage.getItem("userCountry");
 
     if (userCountry) {
       const defaultCategory = 'general';
@@ -53,20 +46,8 @@ export class NewsComponent implements OnInit {
       const selectedCategory = this.categoryService.getSelectedCategory();
       this.fetchNews(selectedCategory, selectedCountry);
     }
-    this.apollo.watchQuery<any>({
-      query: GET_USERS,
-    }).valueChanges.subscribe(({ data }) => {
-      const userEmail = sessionStorage.getItem('userEmail');
 
-      if (userEmail) {
-        this.currentUser = data.allUsers.find(
-          (user: any) => user.email === userEmail
-        );
-        console.log('Current User:', this.currentUser);
-      }
-    });
-
-    this.categoryService.selectedCategory$.subscribe((category) => {
+      this.categoryService.selectedCategory$.subscribe((category) => {
       this.selectedCategory = category;
       const selectedCountry = this.categoryService.getSelectedCountry();
       this.fetchNews(category, selectedCountry);
@@ -111,7 +92,6 @@ export class NewsComponent implements OnInit {
       }
       return false;
     });
-    this.paginatedNews = this.filteredNews.slice(0, this.pageSize);
   }
 
   getCategoryDisplayName(): string {
@@ -132,6 +112,8 @@ export class NewsComponent implements OnInit {
         return 'General News';
     }
   }
+
+  
 
   saveArticle(article: any) {
     const userEmail = sessionStorage.getItem('userEmail');
@@ -188,12 +170,6 @@ export class NewsComponent implements OnInit {
       .catch((error) => {
         console.error('Error:', error);
       });
-  }
-
-  onPageChange(event: PageEvent) {
-    const startIndex = event.pageIndex * event.pageSize;
-    const endIndex = startIndex + event.pageSize;
-    this.paginatedNews = this.filteredNews.slice(startIndex, endIndex);
   }
 
   openShareDialog(article: any): void {

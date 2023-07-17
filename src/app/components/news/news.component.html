@@ -7,22 +7,26 @@
         <div class="row">
             <div class="col-lg-4" *ngFor="let article of filteredNews">
                 <mat-card class="news-card">
+                    <div class="source">
+                        <p> {{ article.source.name || "null" }}</p>
+
+                    </div>
                     <div class="image-container">
-                        <img mat-card-image [src]="article.urlToImage || '../../../../assets/img/default news.jpg'"
-                            [alt]="article.title" />
+                        <a href="{{article.url }}" target="_blank"><img mat-card-image [src]="article.urlToImage || '../../../../assets/img/default news.jpg'"
+                            [alt]="article.title" /></a>
                     </div>
                     <mat-card-content>
                         <mat-card-title class="title">
-                            {{ article.title | slice : 0 : 60 }}
+                           <a href="{{article.url }}" target="_blank"> {{ article.title | slice : 0 : 60 }}</a>
                         </mat-card-title>
                         <mat-card-subtitle class="author">
                             <p> Author : {{ article.author || "null" }}</p>
                         </mat-card-subtitle>
-                        <mat-card-subtitle class="source">
+                        <!-- <mat-card-subtitle class="source">
                             <p>Source : {{ article.source.name || "null" }}</p>
-                        </mat-card-subtitle>
+                        </mat-card-subtitle> -->
                         <mat-card-subtitle class="published-at">
-                            <p> publishedAt : {{article.publishedAt | date: 'yyyy-MM-dd' }}</p>
+                            <p> publishedAt : {{article.publishedAt | date: 'dd MMM yyyy HH.mm.ss' }}</p>
                         </mat-card-subtitle>
                         <p class="description">{{ article.description }}</p>
                     </mat-card-content>

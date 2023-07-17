@@ -34,8 +34,8 @@ export class AllnewsComponent implements OnInit {
   toDate: Date = new Date();
   query: string = 'apple';
   sortBy: string = 'popularity';
-  pageSize: number = 12;
-  pageSizeOptions: number[] = [12, 24, 60];
+  pageSize: number = 20;
+  pageSizeOptions: number[] = [20, 40, 80];
   maxDate: Date;
   maxFromDate: Date;
 
@@ -43,7 +43,7 @@ export class AllnewsComponent implements OnInit {
 
   constructor(
     private newsService: Newsservice,
-    private categoryService: CategoryService,
+    public categoryService: CategoryService,
     private dialog: MatDialog,
     private dateAdapter: DateAdapter<Date>
   ) {

@@ -19,7 +19,7 @@ export class ProfileComponent implements OnInit {
   user: Users | undefined;
 
   constructor(
-    private apollo: Apollo,
+    public apollo: Apollo,
     private dialog: MatDialog,
     private router: Router,
     private authService:AuthService

@@ -7,7 +7,7 @@ import { CategoryService } from './services/category.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'RevNews';
+  title = 'Registrationform';
   searchQuery: string = '';
   selectedCountry: string = 'us';
   

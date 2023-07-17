@@ -28,9 +28,9 @@
                     </div>
                     <div class="col">
                         <input type="text" id="lastName" placeholder="Last Name" formControlName="lastName" class="form-control">
-                        <div *ngIf="registrationFormControl['lastName'].touched && registrationFormControl['lastName'].invalid" class="error">
+                        <!-- <div *ngIf="registrationFormControl['lastName'].touched && registrationFormControl['lastName'].invalid" class="error">
                             Last Name is required
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
@@ -48,10 +48,8 @@
 
                 <div class="mb-3">
                     <input type="text" id="phone" placeholder="Phone Number" formControlName="phone" class="form-control">
-                    <div *ngIf="registrationFormControl['phone'].touched && registrationFormControl['phone'].invalid" class="error">
-                        <ng-container *ngIf="registrationFormControl['phone'].hasError('required')">
-                            Phone Number is required
-                        </ng-container>
+                    <div *ngIf=" registrationFormControl['phone'].invalid" class="error">
+                       
                         <ng-container *ngIf="registrationFormControl['phone'].hasError('pattern')">
                             Invalid phone number
                         </ng-container>

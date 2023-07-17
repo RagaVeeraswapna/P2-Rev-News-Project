@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { ShareiconsComponent } from '../shareicons/shareicons.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-saved-news',
@@ -12,7 +14,7 @@ export class SavedNewsComponent {
   savedNews: any[] = [];
 
   constructor(private router:Router,
-    private authService:AuthService){}
+    private authService:AuthService,private dialog:MatDialog){}
   ngOnInit(): void {
     if (!this.authService.isAuthenticated()) {
       this.router.navigate(['/login']);
@@ -77,5 +79,19 @@ export class SavedNewsComponent {
       .catch(error => {
         console.error('Error:', error);
       });
-  }  
+  }
+  
+  openShareDialog(article: any): void {
+    const dialogRef = this.dialog.open(ShareiconsComponent, {
+      width: '500px',
+      height: '200px',
+      data: {
+        article: article
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(() => {
+      console.log('The dialog was closed');
+    });
+  }
 }

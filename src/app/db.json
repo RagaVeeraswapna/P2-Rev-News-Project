@@ -9,6 +9,36 @@
       "password": "Aksh@259",
       "phone": "6304658521",
       "country": "India"
+    },
+    {
+      "__typename": "User",
+      "id": "2",
+      "firstName": "swapna",
+      "lastName": "r",
+      "email": "swapna@gmail.com",
+      "password": "Swapna@123",
+      "phone": "6305600943",
+      "country": "India"
+    },
+    {
+      "id": "3",
+      "firstName": "Swapna",
+      "lastName": "v",
+      "email": "swapna@gmail.com",
+      "password": "Swapna@123",
+      "phone": "6304658521",
+      "country": "India",
+      "__typename": "User"
+    },
+    {
+      "id": "5",
+      "firstName": "Billudu",
+      "lastName": "Rao",
+      "email": "siva.billudu1@gmail.com",
+      "password": "Siv@1234",
+      "phone": "6305600943",
+      "country": "India",
+      "__typename": "User"
     }
   ],
   "savedArticles": [
@@ -56,6 +86,11 @@
         }
       ],
       "id": 1
+    },
+    {
+      "email": "swapna@gmail.com",
+      "savedArticles": [],
+      "id": 2
     }
   ]
 }

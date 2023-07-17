@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CategoryService } from 'src/app/services/category.service';
 import { Country, countries } from '../../model_classes/countries';
-import { AuthGuard } from 'src/app/auth.guard';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -24,17 +23,15 @@ export class DashboardComponent implements OnInit {
   apiKey = '3a1be8a602e141c4bd7ad01b6431cb92';
 
   constructor(
-    private categoryService: CategoryService,
+    public categoryService: CategoryService,
     private http: HttpClient,
-    private router: Router,
-	private authService: AuthService
+    public router: Router,
+	public authService: AuthService
   ) { }
 
   ngOnInit() {
-    this.getUserCountry();
     const loggedInUserId = sessionStorage.getItem('userEmail');
     this.isLoggedIn = loggedInUserId !== null;
-    // this.authGuard.setLoggedInStatus(this.isLoggedIn);
   }
 
   selectCategory(selectedCategory: string) {
@@ -57,18 +54,6 @@ export class DashboardComponent implements OnInit {
   searchNews() {
     console.log(this.searchQuery);
     this.categoryService.setSearchQuery(this.searchQuery);
-  }
-
-  getUserCountry(): void {
-    this.http.get<any>(`https://api.geoapify.com/v1/ipinfo?apiKey=${this.apiKey}`).subscribe(
-      (response) => {
-        this.userCountry = response.country.iso_code.toLowerCase();
-        console.log('User Country ISO Code:', this.userCountry);
-      },
-      (error) => {
-        console.error('Error retrieving user country:', error);
-      }
-    );
   }
 
   openMenu(event: Event): void {
