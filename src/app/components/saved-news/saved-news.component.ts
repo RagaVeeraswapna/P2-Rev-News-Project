@@ -10,9 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./saved-news.component.css'],
 })
 export class SavedNewsComponent {
-  [x: string]: any;
   savedNews: any[] = [];
-
   constructor(private router:Router,
     private authService:AuthService,private dialog:MatDialog){}
   ngOnInit(): void {
@@ -84,7 +82,7 @@ export class SavedNewsComponent {
   openShareDialog(article: any): void {
     const dialogRef = this.dialog.open(ShareiconsComponent, {
       width: '500px',
-      height: '200px',
+      height: '220px',
       data: {
         article: article
       }

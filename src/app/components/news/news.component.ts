@@ -129,6 +129,15 @@ export class NewsComponent implements OnInit {
           if (!user.savedArticles) {
             user.savedArticles = [];
           }
+
+          const isArticleSaved = user.savedArticles.some(
+            (savedArticle: any) => savedArticle.title === article.title
+          );
+  
+          if (isArticleSaved) {
+            alert('Article is already saved!');
+            return;
+          }
           user.savedArticles.push(article);
           fetch(`http://localhost:3030/savedArticles/${user.id}`, {
             method: 'PUT',
@@ -175,7 +184,7 @@ export class NewsComponent implements OnInit {
   openShareDialog(article: any): void {
     const dialogRef = this.dialog.open(ShareiconsComponent, {
       width: '500px',
-      height: '200px',
+      height: '220px',
       data: {
         article: article
       }

@@ -8,10 +8,6 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class ShareiconsComponent implements OnInit{
   article: any;
-  // include:string='';
-  // url:string='';
-  // title:  string='';
-  // description:string='';
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
 

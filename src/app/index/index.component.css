@@ -76,29 +76,28 @@ header {
 .slide .personalization {
     position: absolute;
     top: 30%;
-    left: 25%;
+    left: 20%;
     transform: translate(-50%, -50%);
     text-align: left;
     font-weight: bold;
     color: white;
-    font-size: 40px;
+    font-size: 30px;
     line-height: 1.5;
 }
 
 .slide .reg-btn {
     position: absolute;
-    top: 60%;
-    left: 25%;
+    top: 75%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    font-weight: bold;
-    color: black;
+    color: white;
     font-size: 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    padding: 10px 150px;
+    padding: 10px 125px;
     transition: background-color 0.3s ease;
-    background-color: #fff;
+    background-color: rgb(36, 94, 180);
     margin-top: 30px;
 }
 
@@ -108,26 +107,27 @@ header {
 
 .slide .save-article {
     position: absolute;
-    top: 75%;
-    left: 25%;
+    top: 20%;
+    left: 20%;
     transform: translate(-50%, -50%);
     text-align: left;
-    color: black;
-    font-size: 40px;
+    color: white;
+    font-size: 30px;
     font-weight: bolder;
     line-height: 1.5;
 }
 
 .slide .share-article {
     position: absolute;
-    top: 40%;
-    right: 25%;
+    top: 20%;
+    right: 20%;
     transform: translate(50%, -50%);
     text-shadow: 1px 1px 2px rgb(155, 155, 155);
     text-align: left;
     color: black;
-    color: rgba(85, 85, 85, 0.9);
-    font-size: 40px;
+    color: white;
+    font-size: 30px;
+    font-weight: bolder;
     line-height: 1.5;
 }
 
@@ -167,7 +167,6 @@ header {
 #radio3:checked~.first {
     margin-left: -40%;
 }
-
 
 .navigation-auto {
     position: absolute;
@@ -217,7 +216,7 @@ header {
 
 
 .col-lg-4 {
-    width: 24%;
+    width: 30%;
     margin-bottom: 20px;
 }
 
@@ -288,8 +287,9 @@ header {
     text-decoration: none;
     color: #fff;
     background: rgb(36, 94, 180);
-    padding: 5px 10px;
     border-radius: 5px;
+    padding: 2px 7px;
+    font-size: 14px;
 }
 
 .readmore:hover {
@@ -301,7 +301,7 @@ header {
 .fa-bookmark {
     width: auto;
     cursor: pointer;
-    font-size: 25px;
+    font-size: 20px;
     color: rgb(36, 94, 180);
     padding: 10px 12px;
 }
@@ -355,83 +355,10 @@ header {
 .Welcome-heading p {
     text-align: center;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 30px;
     padding-bottom: 15px;
     border-bottom: 2px solid black;
 }
-
-.slide .reg-btn {
-    position: absolute;
-    top: 60%;
-    left: 25%;
-    transform: translate(-50%, -50%);
-    font-weight: bold;
-    color: black;
-    font-size: 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    padding: 10px 150px;
-    transition: background-color 0.3s ease;
-    background-color: #fff;
-    margin-top: 30px;
-}
-
-.reg-btn:hover {
-    background-color: darkgrey;
-}
-
-.slide .save-article {
-    position: absolute;
-    top: 30%;
-    left: 20%;
-    transform: translate(-50%, -50%);
-    text-align: left;
-    color: black;
-    font-size: 40px;
-    font-weight: bolder;
-    line-height: 1.5;
-}
-
-.slide .share-article {
-    position: absolute;
-    top: 40%;
-    right: 25%;
-    transform: translate(50%, -50%);
-    text-shadow: 1px 1px 2px rgb(155, 155, 155);
-    text-align: left;
-    color: black;
-    color: white;
-    font-size: 40px;
-    line-height: 1.5;
-}
-
-
-.reg-btn {
-    font-size: 13px;
-    padding: 2px 50px;
-    margin-top: 10px;
-
-}
-
-.Welcome-heading p {
-    font-size: 30px;
-}
-
-.col-lg-4 {
-    width: 30%;
-}
-
-.readmore {
-    padding: 2px 7px;
-    font-size: 14px;
-
-}
-
-.fa-bookmark {
-    font-size: 20px;
-}
-
 
 /* Responsive */
 
